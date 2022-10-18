@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+{
+    font-family: sans-serif;
+}
+
+h1
+{
+    margin-left: 2%;
+}
+
+#forms
+{
+    display: flex;
+}
+
+form
+{
+    border-radius: 5%;
+    background-color: #87D37C;
+    width: 20%;
+    padding: 2%;
+    margin: 2%;
+}
+
+h5
+{
+    font-size: 15px;
+    font-family: monospace;
+    padding: 5px;
+    font-weight: 200;
+    background-color: #FFFEC4;
+}
+
+form input
+{
+    width: 90%;
+    height: 25px;
+    margin-top: 10px;
+}
+
+form input[type="submit"]    
+{
+    width: 93%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.infos
+{
+    margin: 10px;
+}
+
+.infos span
+{
+    font-weight: bold;
+}
+
+#log
+{
+    width: 30%;
+    padding: 5px;
+    font-weight: 500;
+    background-color: #FFFEC4;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Exercise Tracker</h1>
+    <div id="forms">
+        <form action="/api/users" method="POST" id="form-create">
+            <h3>Create a New User</h3>
+            <h5>POST /api/users</h5>
+    
+    
+            <!-- <div class="inputs"> -->
+                <input type="text" value="" placeholder="username" name="username">
+            <!-- </div> -->
+    
+            <!-- <div class="inputs"> -->
+                <input type="submit" value="submit">
+            <!-- </div> -->
+        </form>
+    
+        <form action="/api/users/:_id/exercises" id="form-add" method="post">
+            <h3>Add exercises</h3>
+            <h5>POST /api/users/:_id/exercises</h5>
+    
+            <div class="inputs"><input type="text" value="" name="_id" placeholder=":_id"></div>
+            <div class="inputs"><input type="text" value="" name="description" placeholder="description*"></div>
+            <div class="inputs"><input type="text" value="" name="duration" placeholder="duration*(mins.)"></div>
+            <div class="inputs"><input type="text" value="" name="date" placeholder="date(yyyy-mm-dd)"></div>
+    
+            <div class="inputs"><input type="submit" value="submit"></div>
+        </form>
+    </div>
+
+    <div class="infos"><span>GET user's exercise log:</span> <span id="log">GET /api/users/:_id/logs?[from][&to][&limit]</span></div> 
+    <div class="infos"><span>[ ]</span> = optional</div>
+    <div class="infos"><span>from, to</span> = dates (yyyy-mm-dd); <span>limit</span> = number</div>
+</body>
+</html>
